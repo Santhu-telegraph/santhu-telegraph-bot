@@ -45,7 +45,7 @@ async def help(client, message):
 
 ᴊᴜsᴛ sᴇɴᴅ ᴀ ᴘʜᴏᴛᴏ ᴏʀ ᴠɪᴅᴇᴏ ʟᴇss ᴛʜᴀɴ 𝟻ᴍʙ ғɪʟᴇ sɪᴢᴇ, ɪ'ʟʟ ᴜᴘʟᴏᴀᴅ ɪᴛ ᴛᴏ ᴛᴇʟᴇɢʀᴀᴘʜ.
 
-~ @santhuvc</b>""",
+ᴊᴏɪɴ ғᴏʀ ᴜᴘᴅᴀᴛᴇs: @santhuvc</b>""",
         reply_markup=InlineKeyboardMarkup(
                                 [[
                                         InlineKeyboardButton(
@@ -92,7 +92,7 @@ async def telegraphphoto(client, message):
     except:
         await msg.edit_text("Photo size should be less than 5mb!") 
     else:
-        await msg.edit_text(f'**ᴜᴘʟᴏᴀᴅᴇᴅ ᴛᴏ ᴛᴇʟᴇɢʀᴀᴘʜ!\n\n👉 https://telegra.ph{response[0]}\n\nJoin @santhuvc**',
+        await msg.edit_text(f'**https://telegra.ph{response[0]}**',
             disable_web_page_preview=True,
         )
     finally:
@@ -108,23 +108,23 @@ async def telegraphvid(client, message):
     except:
         await msg.edit_text("Video size should be less than 5mb!") 
     else:
-        await msg.edit_text(f'**ᴜᴘʟᴏᴀᴅᴇᴅ ᴛᴏ ᴛᴇʟᴇɢʀᴀᴘʜ!\n\n👉 https://telegra.ph{response[0]}\n\nJoin @musicwithalby**',
+        await msg.edit_text(f'**https://telegra.ph{response[0]}**',
             disable_web_page_preview=True,
         )
     finally:
         os.remove(download_location)
 
-@Webot.on_message(filters.animation)
-async def telegraphgif(client, message):
+@Webot.on_message(filters.text)
+async def telegraphtext(client, message):
     msg = await message.reply_text("ᴜᴘʟᴏᴀᴅɪɴɢ ᴛᴏ ᴛᴇʟᴇɢʀᴀᴘʜ...")
     download_location = await client.download_media(
         message=message, file_name='root/jetg')
     try:
         response = upload_file(download_location)
     except:
-        await msg.edit_text("Gif size should be less than 5mb!") 
+        await msg.edit_text("text should be less than 5mb!") 
     else:
-        await msg.edit_text(f'**ᴜᴘʟᴏᴀᴅᴇᴅ ᴛᴏ ᴛᴇʟᴇɢʀᴀᴘʜ!\n\n👉 https://telegra.ph{response[0]}\n\nJoin @musicwithalby**',
+        await msg.edit_text(f'**https://telegra.ph{response[0]}**',
             disable_web_page_preview=True,
         )
     finally:
